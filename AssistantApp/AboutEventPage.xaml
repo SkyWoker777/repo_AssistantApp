@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="AssistantApp.AboutEventPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssistantApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#002a32">
+
+    <Page.Resources>
+        <Style TargetType="Rectangle">
+            <Setter Property="Shape.Stroke" Value="#009999"></Setter>
+            <Setter Property="Shape.StrokeThickness" Value="3"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Fill" Value="#009999"></Setter>
+        </Style>
+    </Page.Resources>
+
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="571*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Header" Grid.Row="0" Background="#002a32">
+            <Image IsTapEnabled="True" HorizontalAlignment="Left" Tapped="GoToSyncPage_Tapped" VerticalAlignment="Stretch" Source="Assets/myIcon/btnMenu.png" Stretch="Uniform" Width="55"></Image>
+            <TextBlock FontSize="25" 
+                       Height="40" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Style="{ThemeResource TitleTextBlockStyle}">Информация</TextBlock>
+        </Grid>
+
+        <Grid Background="#003f4c" Grid.Row="1">
+            <Rectangle RadiusX="5" RadiusY="5" Width="390" VerticalAlignment="Top" Margin="5,35,5,0"></Rectangle>
+            <Grid Height="45" HorizontalAlignment="Center" Width="382" Margin="0,35,0,0" VerticalAlignment="Top">
+                <TextBlock x:Name="tbDate"
+                       FontSize="30" 
+                       Height="50"
+                       Text="Дата"
+                       TextAlignment="Center"
+                       VerticalAlignment="Top"
+                       Style="{ThemeResource TitleTextBlockStyle}"/>
+            </Grid>
+            <Rectangle RadiusX="5" RadiusY="5" Width="390" Margin="5,90,5,210" Height="Auto"></Rectangle>
+            <StackPanel Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal" 
+                        Margin="10,90,10,0" 
+                        Width="380">
+                <TextBlock x:Name="tbStartTime"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center" 
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           FontSize="30" 
+                           Text="10:00" 
+                           Width="75" Margin="85,0,0,0"/>
+                <Image Source="Assets/myIcon/ico_rightarrow.png" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="tbEndTime"
+                           TextAlignment="Center" 
+                           Style="{StaticResource BodyTextBlockStyle}" 
+                           FontSize="30" 
+                           Text="12:00" 
+                           Width="75"/>
+            </StackPanel>
+            <Line Margin="0,135,0,0" VerticalAlignment="Top" StrokeThickness="3" Stroke="#00b2b2" X1="20" X2="380"/>
+            <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        Margin="0,140,0,0"
+                        Height="160"
+                        Width="380">
+                <TextBlock x:Name="tbTitle"
+                           Style="{ThemeResource TitleTextBlockStyle}" 
+                           FontFamily="TimesNewRoman" 
+                           TextAlignment="Center"
+                           VerticalAlignment="Top"
+                           FontSize="30"
+                           Text="Тема"
+                           TextWrapping="NoWrap"
+                           Height="50"/>
+                <TextBlock x:Name="tbPlace" 
+                           Style="{ThemeResource BodyTextBlockStyle}" 
+                           FontFamily="TimewNewRoman"
+                           TextAlignment="Center" 
+                           FontSize="24"
+                           Text="Место"
+                           Height="109"
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+            <Rectangle RadiusX="5" RadiusY="5" Width="390" Margin="5,314,0,72" Height="Auto"></Rectangle>
+            <TextBlock x:Name="tbDescription"
+                       Height="103" 
+                       FontSize="20" 
+                       Margin="20,325,20,0" 
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontStyle="Italic"
+                       VerticalAlignment="Top" 
+                       Width="360"/>
+        </Grid>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar x:Name="MyAppBar" 
+                    Background="#002a32" 
+                    ClosedDisplayMode="Compact" 
+                    Opacity="1">
+            <AppBarButton x:Name="btnAppBarEdit" Label="Изменить" Icon="Edit" Click="btnAppBarEdit_Click"></AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="btnAppBarDelete" Label="удалить" Click="btnAppBarDelete_Click"></AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

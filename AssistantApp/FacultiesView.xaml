@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="AssistantApp.FacultiesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssistantApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="518"
+    d:DesignWidth="400">
+
+    <Grid x:Name="RootControle1" Background="#003f4c">
+        <TextBlock Height="40" VerticalAlignment="Top" Text="Выбери факультет:" FontSize="27" FontFamily="Arial" Margin="5,10,5,0"></TextBlock>
+        <ListView x:Name="lstfac"
+                  HorizontalContentAlignment="Center"
+                  HorizontalAlignment="Stretch"
+                  FontSize="25" Margin="0,55,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="50" Width="400" Background="Transparent" Margin="0,15,0,0">
+                        <TextBlock Text="{Binding ShortName}"
+                                   VerticalAlignment="Top"
+                                   TextWrapping="NoWrap"
+                                   HorizontalAlignment="Center"
+                                   Style="{ThemeResource ListViewItemTextBlockStyle}"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</UserControl>

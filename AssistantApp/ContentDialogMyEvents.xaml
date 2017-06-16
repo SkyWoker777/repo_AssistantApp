@@ -1,0 +1,42 @@
+﻿<ContentDialog
+    x:Class="AssistantApp.ContentDialogMyEvents"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AssistantApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="НОВОЕ МЕРОПРИЯТИЕ"
+    PrimaryButtonText="Добавить"  
+    SecondaryButtonText="Отмена"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    Background="#002a32">
+
+    <ScrollViewer x:Name="scvContentDialog" 
+                  Height="430"
+                  VerticalAlignment="Top"
+                  VerticalScrollMode="Enabled" 
+                  AllowDrop="False"
+                  HorizontalScrollMode="Disabled" 
+                  IsHoldingEnabled="True"
+                  VerticalScrollBarVisibility="Hidden">
+        <StackPanel Height="530" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBox x:Name="titleBox" PlaceholderText="Тема" KeyDown="TextBox_KeyDown"/>
+            <TextBox x:Name="placeBox" PlaceholderText="Место" KeyDown="TextBox_KeyDown"/>
+            <TextBox x:Name="descriptionBox" Header="Описание" Height="100" TextWrapping="Wrap" ScrollViewer.BringIntoViewOnFocusChange="True" GotFocus="descriptionBox_GotFocus" LostFocus="descriptionBox_LostFocus" KeyDown="TextBox_KeyDown"/>
+            <Grid Height="150">
+                <DatePicker x:Name="startDatePicker" Header="Дата" DayVisible="True" HorizontalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="70"></DatePicker>
+                <TimePicker x:Name="startTimePicker" Header="Начало" HorizontalContentAlignment="Center" Height="70" Width="150" Margin="0,70,212,10"/>
+                <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="25" Height="75" FontSize="58">-</TextBlock>
+                <TimePicker x:Name="endTimePicker" Header="Конец" HorizontalContentAlignment="Center" Height="70" Width="150" Margin="212,70,0,10"/>
+            </Grid>
+            <Grid HorizontalAlignment="Stretch">
+                <CheckBox x:Name="checkNotice" IsChecked="False" HorizontalAlignment="Left" Checked="checkNotice_Checked" Unchecked="checkNotice_Unchecked">
+                    <TextBlock Text="Напомнить" FontSize="20"/>
+                </CheckBox>
+                <TextBox x:Name="tbxNoticeTime" IsEnabled="False" VerticalAlignment="Top" InputScope="CurrencyAmountAndSymbol" PlaceholderText="ЧЧ:мм" HorizontalContentAlignment="Center" Margin="148,8,128,0" Height="34" KeyDown="TextBox_KeyDown"/>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>
